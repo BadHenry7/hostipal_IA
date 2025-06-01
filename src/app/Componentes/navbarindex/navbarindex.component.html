@@ -14,7 +14,21 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" routerLink="/Login">Iniciar sesión</a></li>
                 <li class="nav-item"><a class="nav-link" routerLink="/">Principal</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/gestionuser">Gestión de usuarios</a></li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Gestión de usuarios
+                    </a>
+                    <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" routerLink="/gestionuser/create">Crear usuario</a></li>
+                    <li><a class="dropdown-item" routerLink="/gestionuser/consultar">Consultar usuario</a></li>
+                    
+                    
+                    </ul>
+                </li>
+
+
+
                 <li class="nav-item"><a class="nav-link" routerLink="/gestioncita">Gestión de citas</a></li>
                 <li class="nav-item"><a class="nav-link" routerLink="/incapacidad">Incapacidad</a></li>
                 <li class="nav-item"><a class="nav-link" routerLink="/dashboard">Dashboard</a></li>

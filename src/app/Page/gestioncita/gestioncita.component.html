@@ -8,16 +8,18 @@
 
         <!--Primera columna-->
         <div class="col-lg-3 col-md-4 col-sm-4 col-4 col-xl-4">
-            <div class="" on:change={mostrar_fecha}>
+            <div class="">
                 <label for=""><b>Seleccione una fecha</b></label>
-                <input type="date" id="c_m_d" class="form-control">
+                <input type="date" id="c_m_d"  [(ngModel)]="fechaSeleccionada" class="form-control">
             </div>
             <!--Eliga un doctor-->
             <div class="mt-5">
                 <label for="" ><b>Elija un Doctor</b></label>
             </div>
-            <select class="form-select" id="medico" required on:change={mostrar_fecha}>
+            <select class="form-select" id="medico" required  [(ngModel)]="doctorSeleccionado">
                 <option selected>Seleccione</option>
+                <option value="Oscar Lopez">Oscar Lopez</option>
+                <option value="Maria Gomez">Maria Gomez</option>
             </select>
 
 
@@ -25,16 +27,21 @@
             <div class="mt-5">
                 <label for=""><b>Elija un Paciente</b></label>
             </div>
-            <select class="form-select" id="paciente" required on:change={mostrar_fecha}>
-                <option selected>Seleccione</option>
+            <select class="form-select" id="paciente" required [(ngModel)]="pacienteSeleccionado">
+                <option value="" disabled selected>Seleccione</option>
+                <option value="Paula Vargas">Paula Vargas</option>
+                <option value="Henry Romero">Henry Romero</option>
+                <option value="Moises Diaz">moises diaz</option>
             </select>
 
             <div class="mt-5">
                 <label for=""><b>Elija una ubicacion</b></label>
             </div>
             <!--Eliga la ubicacion-->
-            <select  id="ubicacion" class="form-select" required>
+            <select  id="ubicacion" class="form-select" [(ngModel)]="ubicacionSeleccionada"  required>
                 <option selected>Seleccione</option>
+                  <option value="Hospital Nazareth">Hospital Nazareth</option>
+          <option value="Paso de la 21">Paso la 21</option>
             </select>
 
         </div>
@@ -50,7 +57,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-6 col-xl-6">
                             <div class="input-group">   
                                 <i class="input-group-text bi bi-clock time-icon bg-primary" style="color: aliceblue;  "></i>
-                                <input type="time" [value]="hour"  class="form-control" readonly>
+                                <input type="time" [value]="hour"(click)="horaSeleccionada = hour" class="form-control" readonly>
                             </div>
                        </div>
 
@@ -71,15 +78,20 @@
 
            
             <div class="text-center fs-4"><p><b>Detalles de la cita:</b></p></div>
-           <p><span><b>Fecha seleccionada:</b></span><span class="mx-3" id="mostrar_fecha">No hay fecha seleccionada</span></p>
+           <p><span><b>Fecha seleccionada:</b></span><span class="mx-3" id="mostrar_fecha">{{ fechaSeleccionada | date:'fullDate' }}</span></p>
            
-           <p><b>Hora seleccionada:</b><span class="mx-3" id="mostrar_hora"> No hay hora seleccionada</span></p>
+           <p><b>Hora seleccionada:</b><span class="mx-3" id="mostrar_hora">
+  La cita será a las {{ horaSeleccionada ? (horaSeleccionada | slice:0:2) + ' horas con ' + (horaSeleccionada | slice:3) + ' minutos' : '00:00' }}
+</span>
+</p>
 
-            <p><b>Doctor seleccionado:</b><span class="mx-3" id="mostrar_doctor"> No hay doctor seleccionado</span></p>
-            <p><b>Paciente seleccionado:</b><span class="mx-3" id="mostrar_paciente"> No hay paciente seleccionada</span></p>
+            <p><b>Doctor seleccionado:</b><span class="mx-3" id="mostrar_doctor"> {{ doctorSeleccionado | uppercase }}</span></p>
+            <p><b>Paciente seleccionado:</b><span class="mx-3" id="mostrar_paciente"> {{ pacienteSeleccionado | titlecase }}</span></p>
+            <p><b>Ubicación:</b> <span class="mx-3">{{ ubicacionSeleccionada | uppercase }}</span></p>
+
 
             <div class="d-flex" style="justify-content: center; align-items: center;">
-            <button class="btn btn-primary "  on:click={ConfirmarAgendar}>
+            <button class="btn btn-primary " (click)="ConfirmarAgendar()">
                 Agendar
             </button>
               </div>

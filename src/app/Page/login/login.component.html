@@ -17,6 +17,7 @@
                     type="text"
                     class="form-control"
                     placeholder="Correo"
+                    [(ngModel)]="correo"
                 />
             </div>
 
@@ -26,6 +27,7 @@
                     class="form-control"
                     type="password"
                     placeholder="Contraseña"
+                    [(ngModel)]="password"
                 />
             </div>
 
@@ -69,7 +71,7 @@
         </div>
 
         <div class="text-center">
-            <button type="button" class="btn btn-primary mt-3">
+            <button type="button" class="btn btn-primary mt-3" (click)="iniciar()">
                 Ingresar
             </button>
         </div>
