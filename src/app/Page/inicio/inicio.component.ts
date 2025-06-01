@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import {NavbarindexComponent} from '../../Componentes/navbarindex/navbarindex.component'
+import {FooterComponent} from '../../Componentes/footer/footer.component'
+import { SlideComponent } from '../../Componentes/slide/slide.component';
 
 @Component({
   selector: 'app-inicio',
-  imports: [],
+  imports: [NavbarindexComponent, FooterComponent, SlideComponent],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'
 })
