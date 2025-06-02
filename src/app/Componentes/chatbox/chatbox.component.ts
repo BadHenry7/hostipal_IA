@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 export class ChatboxComponent {
 loading:boolean =false
 mensaje: string=""
-emisor: string=""
+v_persona: string=""
 image: string=""
 mensajes: any[] = [];   
 

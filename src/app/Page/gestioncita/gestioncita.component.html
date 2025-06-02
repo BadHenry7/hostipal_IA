@@ -10,13 +10,13 @@
         <div class="col-lg-3 col-md-4 col-sm-4 col-4 col-xl-4">
             <div class="">
                 <label for=""><b>Seleccione una fecha</b></label>
-                <input type="date" id="c_m_d"  [(ngModel)]="fechaSeleccionada" class="form-control">
+                <input type="date" id="c_m_d"  [(ngModel)]="fechaSeleccionada" class="form-control"><!--ngModel para reemplazar al bind value que teniamos con svelte-->
             </div>
             <!--Eliga un doctor-->
             <div class="mt-5">
                 <label for="" ><b>Elija un Doctor</b></label>
             </div>
-            <select class="form-select" id="medico" required  [(ngModel)]="doctorSeleccionado">
+            <select class="form-select" id="medico" required  [(ngModel)]="doctorSeleccionado"><!--ngModel para reemplazar al bind value que teniamos con svelte-->
                 <option selected>Seleccione</option>
                 <option value="Oscar Lopez">Oscar Lopez</option>
                 <option value="Maria Gomez">Maria Gomez</option>

@@ -10,7 +10,7 @@ import { Router } from '@angular/router';//Para usar router navigate
 })
 
 export class LoginComponent {
-constructor(private router: Router) {}
+constructor(private router: Router) {}//supuestamente sirve para usar el router.navigate que evita recargar la pagina con window.location.href
 
  correo: string = '';
   password: string = '';
@@ -18,12 +18,12 @@ constructor(private router: Router) {}
   iniciar(){
   
 
-   let encontrado = { correo: this.correo, password: this.password };
+   let encontrado = { correo: this.correo, password: this.password };//sin el this. no funciona
     console.log("Imprimos el encontrado", encontrado);
     let miStorage = window.localStorage;
     miStorage.setItem("usuario", JSON.stringify(encontrado));
 
-    this.router.navigate(['/gestionuser']);
+    this.router.navigate(['/gestioncita']);
 
   }
 

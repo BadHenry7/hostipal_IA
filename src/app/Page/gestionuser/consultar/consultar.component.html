@@ -50,12 +50,12 @@
 
           <tbody>
   <tr *ngFor="let todo of todos" class="hover:bg-gray-50">
-    <td class="py-2 border">{{ todo.usuario }}</td>
-    <td class="py-2 border">{{ todo.nombre }}</td>
-    <td class="py-2 border">{{ todo.apellido }}</td>
-    <td class="py-2 border">{{ todo.documento }}</td>
-    <td class="py-2 border">{{ todo.telefono }}</td>
-    <td class="py-2 border">{{ todo.nombre_rol }}</td>
+    <td class="py-2 border">{{ todo.usuario | uppercase }}</td>
+    <td class="py-2 border">{{ todo.nombre | titlecase   }}</td>
+    <td class="py-2 border">{{ todo.apellido | titlecase }}</td>
+    <td class="py-2 border">{{ todo.documento | number }}</td>
+    <td class="py-2 border">{{ todo.telefono  | number }}</td>
+    <td class="py-2 border">{{ todo.nombre_rol | uppercase }}</td>
 
     <td class="py-2 border">
       <span [ngClass]="todo.estado ? 'text-green-600' : 'text-red-600'">
@@ -93,7 +93,7 @@
   </div>
 </div>
 <div
-  class="fade"
+  class=""
   id="nav-listado"
   role="tabpanel"
   aria-labelledby="nav-listado-tab"
@@ -116,7 +116,7 @@
         <div class="col-lg-10">
           <input
             type="text"
-            placeholder="Nombres"
+            value="Henry"
             id="nombres"
             maxlength="100"
             style="border: none; width: 55%;"
@@ -133,7 +133,7 @@
         <div class="col-lg-10">
           <input
             type="text"
-            placeholder="Apellidos"
+            value="Romero"
             id="apellidos"
             style="border: none; width: 55%;"
             
@@ -149,7 +149,7 @@
           <input
             type="text"
             id="documento"
-            placeholder="Documento de identidad"
+            value="123456789"
             style="border: none; width: 55%;"
             
           />
@@ -164,7 +164,7 @@
           <input
             type="text"
             id="telefono"
-            placeholder="Telefono"
+            value="5551234"
             maxlength="20"
             style="border: none; width: 55%;"
             
@@ -179,7 +179,7 @@
         <div class="col-lg-10">
           <input
             type="text"
-            placeholder="Correo electronico"
+            value="hdavidromero@gmail.com"
             id="correo"
             style="border: none; width: 55%;"
             
@@ -193,7 +193,7 @@
         </div>
         <div class="col-lg-10">
           <select id="roles" required style="border: none; width: 55%;">
-            <option value="" selected>Seleccione</option>
+            <option value="" selected>Administrador</option>
         </select>
         </div>
       </div>
